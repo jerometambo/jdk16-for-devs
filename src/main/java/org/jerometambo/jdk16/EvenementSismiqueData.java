@@ -5,9 +5,9 @@ import java.time.ZonedDateTime;
 
 public final class EvenementSismiqueData {
     
-    private int intensite;
-    private ZonedDateTime date;
-    private Duration duree;
+    private final int intensite;
+    private final ZonedDateTime date;
+    private final Duration duree;
     
     public EvenementSismiqueData(int intensite, ZonedDateTime date, Duration duree) {
         this.intensite = intensite;
@@ -19,24 +19,12 @@ public final class EvenementSismiqueData {
         return intensite;
     }
     
-    public void setIntensite(final int intensite) {
-        this.intensite = intensite;
-    }
-    
     public ZonedDateTime getDate() {
         return date;
     }
     
-    public void setDate(final ZonedDateTime date) {
-        this.date = date;
-    }
-    
     public Duration getDuree() {
         return duree;
-    }
-    
-    public void setDuree(final Duration duree) {
-        this.duree = duree;
     }
     
     @Override
@@ -61,5 +49,14 @@ public final class EvenementSismiqueData {
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (duree != null ? duree.hashCode() : 0);
         return result;
+    }
+    
+    @Override
+    public String toString() {
+        return "EvenementSismiqueData{" +
+                "intensite=" + intensite +
+                ", date=" + date +
+                ", duree=" + duree +
+                '}';
     }
 }
